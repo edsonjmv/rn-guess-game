@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ImageBackground, StyleSheet } from 'react-native';
+import { ImageBackground, StyleSheet, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import StartGameScreen from './screens/StartGameScreen';
 import GameScreen from './screens/GameScreen';
@@ -19,11 +19,13 @@ export default function App() {
         style={styles.rootScreen}
         imageStyle={styles.backgroundImage}
       >
-        {userNumber ? (
-          <GameScreen />
-        ) : (
-          <StartGameScreen onConfirm={setUserNumber} />
-        )}
+        <SafeAreaView style={styles.rootScreen}>
+          {userNumber ? (
+            <GameScreen />
+          ) : (
+            <StartGameScreen onConfirm={setUserNumber} />
+          )}
+        </SafeAreaView>
       </ImageBackground>
     </LinearGradient>
   );
