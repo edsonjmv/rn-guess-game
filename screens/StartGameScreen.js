@@ -29,8 +29,6 @@ function StartGameScreen({ onConfirm }) {
       return;
     }
 
-    console.log('Valid number!');
-
     onConfirm(chosenNumber);
   }
 
