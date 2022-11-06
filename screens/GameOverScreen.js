@@ -3,7 +3,7 @@ import Title from '../components/ui/Title';
 import PrimaryButton from '../components/ui/PrimaryButton';
 import Colors from '../constants/colors';
 
-function GameOverScreen() {
+function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
   return (
     <View style={styles.screen}>
       <Title>GAME OVER!</Title>
@@ -14,10 +14,11 @@ function GameOverScreen() {
         />
       </View>
       <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlightText}>X</Text> rounds to
-        guess the number <Text style={styles.highlightText}>Y</Text>.
+        Your phone needed{' '}
+        <Text style={styles.highlightText}>{roundsNumber}</Text> rounds to guess
+        the number <Text style={styles.highlightText}>{userNumber}</Text>.
       </Text>
-      <PrimaryButton>Start new game</PrimaryButton>
+      <PrimaryButton onPress={onStartNewGame}>Start new game</PrimaryButton>
     </View>
   );
 }
